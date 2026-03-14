@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palmer Penguins Species Classification | Neil</title>
+  <meta
+    name="description"
+    content="Neil's Palmer Penguins classification project featuring charts, results, and downloadable deliverables."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="shape shape-one"></div>
+    <div class="shape shape-two"></div>
+    <div class="shape shape-three"></div>
+
+    <header class="site-header">
+      <a class="brand" href="../index.html">Neil<span>.build</span></a>
+      <nav class="site-nav" aria-label="Project navigation">
+        <a href="../index.html#artifacts">Portfolio</a>
+        <a href="penguins/project-report.md" download>Download</a>
+      </nav>
+    </header>
+
+    <main class="artifact-layout">
+      <section class="panel artifact-header">
+        <a class="back-link" href="../index.html#artifacts">Back to portfolio</a>
+        <p class="eyebrow">Featured project</p>
+        <h1>Palmer Penguins Species Classification</h1>
+        <p>
+          This project turns the Palmer Penguins dataset into a portfolio-ready
+          machine learning project. It includes data cleaning, simple classifier
+          comparison, generated charts, exported results files, and a downloadable
+          report that can be shared directly from GitHub Pages.
+        </p>
+        <div class="artifact-actions">
+          <a class="button button-primary" href="penguins/project-report.md" download>Download Report</a>
+          <a class="button button-secondary" href="penguins/generate-artifact.ps1" download>Download Analysis Script</a>
+          <a class="button button-secondary" href="../index.html">Return Home</a>
+        </div>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <p class="mini-label">Raw rows</p>
+          <strong>344</strong>
+          <p>Original observations in the dataset.</p>
+        </article>
+        <article class="stat-card">
+          <p class="mini-label">Clean rows</p>
+          <strong>333</strong>
+          <p>Rows kept after removing missing values.</p>
+        </article>
+        <article class="stat-card">
+          <p class="mini-label">Best model</p>
+          <strong>1-NN</strong>
+          <p>Top-performing classifier in this project.</p>
+        </article>
+        <article class="stat-card">
+          <p class="mini-label">Best accuracy</p>
+          <strong>100%</strong>
+          <p>67 correct predictions out of 67 test rows.</p>
+        </article>
+      </section>
+
+      <section class="artifact-info-grid">
+        <article class="panel">
+          <p class="mini-label">Title</p>
+          <h2>Palmer Penguins Species Classification</h2>
+        </article>
+        <article class="panel">
+          <p class="mini-label">Objective</p>
+          <p>
+            Use a real dataset to explore penguin measurements, compare simple
+            classification approaches, and practice a complete machine learning
+            workflow from data cleaning through evaluation.
+          </p>
+        </article>
+        <article class="panel">
+          <p class="mini-label">Process</p>
+          <p>
+            I downloaded the Palmer Penguins dataset, removed incomplete rows,
+            selected numeric features, created deterministic train and test splits,
+            compared three classifiers, and exported the resulting charts and data
+            files for this portfolio.
+          </p>
+        </article>
+        <article class="panel">
+          <p class="mini-label">Tools</p>
+          <p>
+            PowerShell, CSV processing, static SVG chart generation, Markdown,
+            HTML, CSS, and GitHub Pages compatible static hosting.
+          </p>
+        </article>
+        <article class="panel">
+          <p class="mini-label">Value Proposition</p>
+          <p>
+            This project shows that I can structure a practical analysis, build
+            repeatable code, compare model behavior clearly, and turn technical
+            output into a polished public-facing deliverable.
+          </p>
+        </article>
+        <article class="panel">
+          <p class="mini-label">Deliverable Type</p>
+          <p>
+            Downloadable report, analysis script, dataset, model results, and SVG
+            visuals. Each file is hosted directly within the portfolio project.
+          </p>
+        </article>
+      </section>
+
+      <section class="result-table-wrap">
+        <p class="eyebrow">Model comparison</p>
+        <h2>Results summary</h2>
+        <p>
+          The baseline model predicts the most common class only, while the two
+          distance-based classifiers use penguin measurements to classify species.
+          In this project, even simple methods performed very well.
+        </p>
+        <table class="result-table">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Accuracy</th>
+              <th>Correct / Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Majority class baseline</td>
+              <td>44.8%</td>
+              <td>30 / 67</td>
+            </tr>
+            <tr>
+              <td>Nearest centroid classifier</td>
+              <td>97.0%</td>
+              <td>65 / 67</td>
+            </tr>
+            <tr>
+              <td>1-nearest-neighbor classifier</td>
+              <td>100.0%</td>
+              <td>67 / 67</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="artifact-visual-grid">
+        <article class="visual-card">
+          <p class="mini-label">Chart 01</p>
+          <h3>Species counts</h3>
+          <p>Class balance for Adelie, Chinstrap, and Gentoo penguins after cleaning the dataset.</p>
+          <img src="penguins/species-counts.svg" alt="Bar chart showing counts for Adelie, Chinstrap, and Gentoo penguins">
+        </article>
+        <article class="visual-card">
+          <p class="mini-label">Chart 02</p>
+          <h3>Average flipper length</h3>
+          <p>A quick visual comparison of a feature that helps separate the species.</p>
+          <img src="penguins/average-flipper-length.svg" alt="Bar chart showing average flipper length for each penguin species">
+        </article>
+        <article class="visual-card">
+          <p class="mini-label">Chart 03</p>
+          <h3>Model accuracy</h3>
+          <p>The project compares a baseline, nearest centroid, and 1-nearest-neighbor classifier.</p>
+          <img src="penguins/model-accuracy.svg" alt="Bar chart comparing model accuracies for the penguins project">
+        </article>
+        <article class="visual-card">
+          <p class="mini-label">Key takeaway</p>
+          <h3>Simple models can still be strong</h3>
+          <p>
+            The project shows that clean data and well-chosen features can make
+            straightforward classification methods surprisingly effective.
+          </p>
+        </article>
+      </section>
+
+      <section class="panel download-card">
+        <p class="eyebrow">Files</p>
+        <h2>Use the project directly</h2>
+        <p>
+          These are the tangible deliverables tied to the project. They can be
+          downloaded independently of the website and reviewed like a mini project
+          package.
+        </p>
+        <div class="download-grid">
+          <article class="download-link-card">
+            <h3>Project report</h3>
+            <p>A written summary of the objective, process, tools, value proposition, and results.</p>
+            <a class="button button-primary" href="penguins/project-report.md" download>Download Report</a>
+          </article>
+          <article class="download-link-card">
+            <h3>Analysis script</h3>
+            <p>The repeatable PowerShell script used to clean the data and generate outputs.</p>
+            <a class="button button-secondary" href="penguins/generate-artifact.ps1" download>Download Script</a>
+          </article>
+          <article class="download-link-card">
+            <h3>Results table</h3>
+            <p>CSV export of the model comparison for use in spreadsheets or documentation.</p>
+            <a class="button button-secondary" href="penguins/model-results.csv" download>Download Results CSV</a>
+          </article>
+          <article class="download-link-card">
+            <h3>Dataset and summaries</h3>
+            <p>The original penguins CSV plus generated species summary and confusion matrix files.</p>
+            <a class="button button-secondary" href="penguins/penguins.csv" download>Download Dataset</a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Portfolio project page.</p>
+    </footer>
+  </div>
+</body>
+</html>

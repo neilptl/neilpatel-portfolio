@@ -1,0 +1,4 @@
+"model","short_label","accuracy_percent","correct_predictions","total_test_samples","notes"
+"Majority class baseline","Baseline","44.8","30","67","Always predicts Adelie."
+"Nearest centroid classifier","Centroid","97","65","67","Classifies each penguin by the closest species center."
+"1-nearest-neighbor classifier","1-NN","100","67","67","Classifies each penguin by the closest training example."
