@@ -1,0 +1,7 @@
+"activity","count","avg_motion_score","avg_acc_std"
+"WALKING","1722","0.705","0.261"
+"WALKING_UPSTAIRS","1544","0.754","0.22"
+"WALKING_DOWNSTAIRS","1406","0.837","0.232"
+"SITTING","1777","0.039","0.953"
+"STANDING","1906","0.047","0.952"
+"LAYING","1944","0.042","0.952"

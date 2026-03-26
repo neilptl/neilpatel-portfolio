@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" role="img" aria-labelledby="chart-title">
+  <title id="chart-title">Model Accuracy Comparison</title>
+  <rect width="900" height="450" rx="28" fill="#18123b" />
+  <text x="90" y="42" fill="#f9f7ff" font-size="26" font-weight="800">Model Accuracy Comparison</text>
+  <line x1="90" y1="76" x2="90" y2="358" stroke="#7964d8" stroke-width="2" opacity="0.55" />
+  <line x1="90" y1="358" x2="870" y2="358" stroke="#7964d8" stroke-width="2" opacity="0.55" />
+  <text x="24" y="82" fill="#d7d0f2" font-size="14">76.1%</text>
+  <text x="38" y="364" fill="#d7d0f2" font-size="14">0%</text>
+  <rect x='168' y='290.557161629435' width='104' height='67.442838370565' rx='18' fill='#8b5cf6' opacity='0.95' />
+  <text x='220' y='280.557161629435' text-anchor='middle' fill='#f9f7ff' font-size='16' font-weight='700'>18.2%</text>
+  <text x='220' y='386' text-anchor='middle' fill='#d7d0f2' font-size='14'>Baseline</text>
+  <rect x='428' y='78.9645203679369' width='104' height='279.035479632063' rx='18' fill='#22d3ee' opacity='0.95' />
+  <text x='480' y='68.9645203679369' text-anchor='middle' fill='#f9f7ff' font-size='16' font-weight='700'>75.3%</text>
+  <text x='480' y='386' text-anchor='middle' fill='#d7d0f2' font-size='14'>Centroid</text>
+  <rect x='688' y='76' width='104' height='282' rx='18' fill='#f472b6' opacity='0.95' />
+  <text x='740' y='66' text-anchor='middle' fill='#f9f7ff' font-size='16' font-weight='700'>76.1%</text>
+  <text x='740' y='386' text-anchor='middle' fill='#d7d0f2' font-size='14'>Prototype 3-NN</text>
+</svg>

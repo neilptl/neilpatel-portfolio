@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" role="img" aria-labelledby="chart-title">
+  <title id="chart-title">Average Motion Score by Activity</title>
+  <rect width="900" height="450" rx="28" fill="#18123b" />
+  <text x="90" y="42" fill="#f9f7ff" font-size="26" font-weight="800">Average Motion Score by Activity</text>
+  <line x1="90" y1="76" x2="90" y2="358" stroke="#7964d8" stroke-width="2" opacity="0.55" />
+  <line x1="90" y1="358" x2="870" y2="358" stroke="#7964d8" stroke-width="2" opacity="0.55" />
+  <text x="24" y="82" fill="#d7d0f2" font-size="14">0.837</text>
+  <text x="38" y="364" fill="#d7d0f2" font-size="14">0</text>
+  <rect x='118.5' y='120.47311827957' width='73' height='237.52688172043' rx='18' fill='#22d3ee' opacity='0.95' />
+  <text x='155' y='110.47311827957' text-anchor='middle' fill='#f9f7ff' font-size='16' font-weight='700'>0.705</text>
+  <text x='155' y='386' text-anchor='middle' fill='#d7d0f2' font-size='14'>WALKING</text>
+  <rect x='248.5' y='103.964157706093' width='73' height='254.035842293907' rx='18' fill='#60a5fa' opacity='0.95' />
+  <text x='285' y='93.9641577060932' text-anchor='middle' fill='#f9f7ff' font-size='16' font-weight='700'>0.754</text>
+  <text x='285' y='386' text-anchor='middle' fill='#d7d0f2' font-size='14'>WALKING_ UPSTAIRS</text>
+  <rect x='378.5' y='76' width='73' height='282' rx='18' fill='#f472b6' opacity='0.95' />
+  <text x='415' y='66' text-anchor='middle' fill='#f9f7ff' font-size='16' font-weight='700'>0.837</text>
+  <text x='415' y='386' text-anchor='middle' fill='#d7d0f2' font-size='14'>WALKING_ DOWNSTAIRS</text>
+  <rect x='508.5' y='344.860215053763' width='73' height='13.1397849462366' rx='18' fill='#f59e0b' opacity='0.95' />
+  <text x='545' y='334.860215053763' text-anchor='middle' fill='#f9f7ff' font-size='16' font-weight='700'>0.039</text>
+  <text x='545' y='386' text-anchor='middle' fill='#d7d0f2' font-size='14'>SITTING</text>
+  <rect x='638.5' y='342.164874551971' width='73' height='15.8351254480287' rx='18' fill='#8b5cf6' opacity='0.95' />
+  <text x='675' y='332.164874551971' text-anchor='middle' fill='#f9f7ff' font-size='16' font-weight='700'>0.047</text>
+  <text x='675' y='386' text-anchor='middle' fill='#d7d0f2' font-size='14'>STANDING</text>
+  <rect x='768.5' y='343.849462365591' width='73' height='14.1505376344086' rx='18' fill='#34d399' opacity='0.95' />
+  <text x='805' y='333.849462365591' text-anchor='middle' fill='#f9f7ff' font-size='16' font-weight='700'>0.042</text>
+  <text x='805' y='386' text-anchor='middle' fill='#d7d0f2' font-size='14'>LAYING</text>
+</svg>

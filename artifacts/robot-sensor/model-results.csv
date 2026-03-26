@@ -1,0 +1,4 @@
+"model","short_label","accuracy_percent","correct_predictions","total_test_samples","notes"
+"Majority activity baseline","Baseline","18.2","537","2947","Always predicts LAYING."
+"Nearest centroid classifier","Centroid","75.3","2220","2947","Uses class centers built from the full training split."
+"Prototype 3-nearest-neighbor classifier","Prototype 3-NN","76.1","2243","2947","Compares each test window to 60 representative training windows per activity using 3 nearest neighbors."

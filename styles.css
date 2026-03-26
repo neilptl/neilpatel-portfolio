@@ -348,6 +348,12 @@ p {
   gap: 18px;
 }
 
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
 .artifact-topline {
   display: flex;
   flex-wrap: wrap;
@@ -523,6 +529,7 @@ p {
   .hero,
   .section-grid,
   .skill-grid,
+  .project-grid,
   .artifact-meta-grid,
   .artifact-info-grid,
   .stats-grid,

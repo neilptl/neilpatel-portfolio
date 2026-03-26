@@ -5,10 +5,12 @@ This is a static portfolio site designed for GitHub Pages.
 ## What's included
 
 - `index.html`: colorful one-page portfolio homepage
-- `styles.css`: shared styles for the portfolio and artifact pages
+- `styles.css`: shared styles for the portfolio and project pages
 - `script.js`: small enhancement for footer year
-- `artifacts/artifact-01.html`: artifact detail page
+- `artifacts/artifact-01.html`: penguins project detail page
 - `artifacts/penguins/`: the first machine learning project and its downloadable files
+- `artifacts/robot-sensor-data-classification.html`: robot sensor project detail page
+- `artifacts/robot-sensor/`: the second machine learning project and its downloadable files
 - `.github/workflows/deploy.yml`: GitHub Pages deployment workflow
 
 ## Publish to GitHub Pages
@@ -24,6 +26,6 @@ This is a static portfolio site designed for GitHub Pages.
 ## Customize later
 
 - Update the text in `index.html` as your portfolio grows.
-- Add new artifact pages in `artifacts/`.
-- Add screenshots, reports, PDFs, or code samples as future artifact evidence.
+- Add new project pages in `artifacts/`.
+- Add screenshots, reports, PDFs, or code samples as future project evidence.
 - Expand the portfolio with more projects using the same structure.
