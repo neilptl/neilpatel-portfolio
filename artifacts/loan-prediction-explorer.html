@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Loan Prediction Explorer | Neil</title>
+  <meta
+    name="description"
+    content="Neil's interactive loan prediction explorer with live browser-side scoring, data visualizations, and downloadable assets."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="loan-explorer/dashboard.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="shape shape-one"></div>
+    <div class="shape shape-two"></div>
+    <div class="shape shape-three"></div>
+
+    <header class="site-header">
+      <a class="brand" href="../index.html">Neil<span>.build</span></a>
+      <nav class="site-nav" aria-label="Project navigation">
+        <a href="../index.html#artifacts">Portfolio</a>
+        <a href="loan-explorer/loan-approval-dataset.csv" download>Download Data</a>
+      </nav>
+    </header>
+
+    <main class="artifact-layout">
+      <section class="panel artifact-header">
+        <a class="back-link" href="../index.html#artifacts">Back to portfolio</a>
+        <p class="eyebrow">Featured project</p>
+        <h1>Interactive Loan Prediction Explorer</h1>
+        <p>
+          This project shifts from static analysis into a browser-based ML
+          experience. It loads a public loan approval dataset client-side, applies
+          a lightweight scorecard model in JavaScript, and gives the user an
+          interactive way to explore how income, leverage, credit quality, and
+          assets affect a lending decision.
+        </p>
+        <div class="artifact-actions">
+          <a class="button button-primary" href="loan-explorer/loan-approval-dataset.csv" download>Download Dataset</a>
+          <a class="button button-secondary" href="loan-explorer/model-config.json" download>Download Model Config</a>
+          <a class="button button-secondary" href="../index.html">Return Home</a>
+        </div>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <p class="mini-label">Records</p>
+          <strong id="summary-records">...</strong>
+          <p>Historical loan applications loaded in the browser.</p>
+        </article>
+        <article class="stat-card">
+          <p class="mini-label">Approval rate</p>
+          <strong id="summary-approval-rate">...</strong>
+          <p>Observed approval rate in the source dataset.</p>
+        </article>
+        <article class="stat-card">
+          <p class="mini-label">Avg. credit score</p>
+          <strong id="summary-cibil">...</strong>
+          <p>Average CIBIL score across all applications.</p>
+        </article>
+        <article class="stat-card">
+          <p class="mini-label">Median loan</p>
+          <strong id="summary-loan">...</strong>
+          <p>Middle requested loan amount in the dataset.</p>
+        </article>
+      </section>
+
+      <section class="artifact-info-grid">
+        <article class="panel">
+          <p class="mini-label">Title</p>
+          <h2>Interactive Loan Prediction Explorer</h2>
+        </article>
+        <article class="panel">
+          <p class="mini-label">Objective</p>
+          <p>
+            Create a browser-based lending explorer that lets a user manipulate
+            application inputs, inspect a live approval score, and connect model
+            behavior to patterns in a public dataset.
+          </p>
+        </article>
+        <article class="panel">
+          <p class="mini-label">Process</p>
+          <p>
+            I selected a public loan approval dataset, modeled key numeric and
+            categorical features with a client-side scorecard, designed a dashboard
+            around scenario testing, and added charts plus nearest-neighbor loan
+            matches to make the output more interpretable.
+          </p>
+        </article>
+        <article class="panel">
+          <p class="mini-label">Tools</p>
+          <p>
+            JavaScript, Plotly.js, Papa Parse, JSON configuration, HTML, CSS, and
+            GitHub Pages compatible static hosting.
+          </p>
+        </article>
+        <article class="panel">
+          <p class="mini-label">Value Proposition</p>
+          <p>
+            This project demonstrates frontend engineering, interactive data
+            storytelling, and my ability to turn model logic into a usable
+            browser-side experience instead of a static report.
+          </p>
+        </article>
+        <article class="panel">
+          <p class="mini-label">Deliverable Type</p>
+          <p>
+            Interactive dashboard, downloadable source dataset, browser-side model
+            configuration, JavaScript application logic, and styling assets.
+          </p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="dashboard-shell">
+          <div>
+            <p class="eyebrow">Interactive dashboard</p>
+            <h2>Test a lending scenario in the browser</h2>
+            <p class="dashboard-note" id="loan-dashboard-status">
+              Loading dataset and model configuration...
+            </p>
+            <div class="preset-row" id="preset-row"></div>
+          </div>
+
+          <div class="dashboard-layout">
+            <article class="dashboard-card">
+              <h3>Scenario inputs</h3>
+              <p>Income and asset values use the same raw currency units as the source dataset.</p>
+              <div class="form-grid">
+                <div class="field-group">
+                  <label for="input-income">Annual income</label>
+                  <input id="input-income" type="number" min="0" step="100000">
+                </div>
+                <div class="field-group">
+                  <label for="input-loan-amount">Loan amount</label>
+                  <input id="input-loan-amount" type="number" min="0" step="100000">
+                </div>
+                <div class="field-group">
+                  <label for="input-cibil">Credit score</label>
+                  <input id="input-cibil" type="number" min="300" max="900" step="1">
+                </div>
+                <div class="field-group">
+                  <label for="input-loan-term">Loan term</label>
+                  <input id="input-loan-term" type="number" min="2" max="20" step="1">
+                </div>
+                <div class="field-group">
+                  <label for="input-dependents">Dependents</label>
+                  <input id="input-dependents" type="number" min="0" max="5" step="1">
+                </div>
+                <div class="field-group">
+                  <label for="input-education">Education</label>
+                  <select id="input-education">
+                    <option value="Graduate">Graduate</option>
+                    <option value="Not Graduate">Not Graduate</option>
+                  </select>
+                </div>
+                <div class="field-group">
+                  <label for="input-self-employed">Self employed</label>
+                  <select id="input-self-employed">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                  </select>
+                </div>
+                <div class="field-group">
+                  <label for="input-bank">Bank assets</label>
+                  <input id="input-bank" type="number" min="0" step="100000">
+                </div>
+                <div class="field-group">
+                  <label for="input-residential">Residential assets</label>
+                  <input id="input-residential" type="number" min="0" step="100000">
+                </div>
+                <div class="field-group">
+                  <label for="input-commercial">Commercial assets</label>
+                  <input id="input-commercial" type="number" min="0" step="100000">
+                </div>
+                <div class="field-group">
+                  <label for="input-luxury">Luxury assets</label>
+                  <input id="input-luxury" type="number" min="0" step="100000">
+                </div>
+              </div>
+            </article>
+
+            <div class="prediction-stack">
+              <article class="dashboard-card">
+                <h3>Approval estimate</h3>
+                <span class="prediction-badge review" id="prediction-badge">Waiting for inputs</span>
+                <div class="probability-number" id="probability-number">0%</div>
+                <div class="meter-track">
+                  <div class="meter-fill" id="meter-fill"></div>
+                </div>
+                <p class="prediction-copy" id="prediction-copy">
+                  The dashboard will explain which factors are pushing the scenario up or down.
+                </p>
+              </article>
+
+              <article class="dashboard-card">
+                <h3>Top drivers</h3>
+                <div class="driver-list" id="driver-list"></div>
+              </article>
+            </div>
+          </div>
+
+          <div>
+            <p class="eyebrow">Historical context</p>
+            <h2>Filter the underlying loan dataset</h2>
+            <p class="dashboard-note">
+              Use these filters to narrow the charts while keeping the current scenario visible in the scatter plot.
+            </p>
+            <div class="filter-row">
+              <div class="filter-chip">
+                <label for="filter-education">Education</label>
+                <select id="filter-education">
+                  <option value="All">All</option>
+                  <option value="Graduate">Graduate</option>
+                  <option value="Not Graduate">Not Graduate</option>
+                </select>
+              </div>
+              <div class="filter-chip">
+                <label for="filter-employment">Self employed</label>
+                <select id="filter-employment">
+                  <option value="All">All</option>
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+              <div class="filter-chip">
+                <label for="filter-status">Observed outcome</label>
+                <select id="filter-status">
+                  <option value="All">All</option>
+                  <option value="Approved">Approved</option>
+                  <option value="Rejected">Rejected</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="plot-grid">
+            <article class="plot-card wide">
+              <h3>Historical loans with live scenario overlay</h3>
+              <p>The gold diamond is the current scenario plotted against approved and rejected historical applications.</p>
+              <div class="chart-surface" id="scatter-chart"></div>
+            </article>
+            <article class="plot-card">
+              <h3>Approval rate by credit band</h3>
+              <p>Credit quality is one of the clearest drivers of historical outcomes in the dataset.</p>
+              <div class="chart-surface" id="credit-band-chart"></div>
+            </article>
+            <article class="plot-card">
+              <h3>Loan-to-income by outcome</h3>
+              <p>This view shows how leverage differs between approved and rejected loans.</p>
+              <div class="chart-surface" id="ratio-chart"></div>
+            </article>
+          </div>
+
+          <article class="table-card">
+            <h3>Closest historical loan scenarios</h3>
+            <p>
+              These examples are the nearest matches to the current scenario across income, requested amount,
+              credit quality, leverage, and asset coverage.
+            </p>
+            <div class="table-wrap">
+              <table class="match-table">
+                <thead>
+                  <tr>
+                    <th>Loan ID</th>
+                    <th>Credit</th>
+                    <th>Income</th>
+                    <th>Loan</th>
+                    <th>Term</th>
+                    <th>Education</th>
+                    <th>Self employed</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="similar-table-body"></tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel download-card">
+        <p class="eyebrow">Files</p>
+        <h2>Use the project directly</h2>
+        <p>
+          The explorer is fully client-side, so the code, data, and model inputs are all downloadable and reviewable
+          without any backend services.
+        </p>
+        <div class="download-grid">
+          <article class="download-link-card">
+            <h3>Source dataset</h3>
+            <p>The public loan approval dataset used for the explorer and historical charts.</p>
+            <a class="button button-primary" href="loan-explorer/loan-approval-dataset.csv" download>Download CSV</a>
+          </article>
+          <article class="download-link-card">
+            <h3>Model configuration</h3>
+            <p>The JSON scorecard weights, thresholds, and preset scenarios used by the app.</p>
+            <a class="button button-secondary" href="loan-explorer/model-config.json" download>Download JSON</a>
+          </article>
+          <article class="download-link-card">
+            <h3>Application logic</h3>
+            <p>The JavaScript that loads the dataset, computes predictions, and renders the charts.</p>
+            <a class="button button-secondary" href="loan-explorer/app.js" download>Download App JS</a>
+          </article>
+          <article class="download-link-card">
+            <h3>Dashboard styling</h3>
+            <p>The CSS used to turn the lending explorer into a polished browser-based dashboard.</p>
+            <a class="button button-secondary" href="loan-explorer/dashboard.css" download>Download CSS</a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Portfolio project page.</p>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="loan-explorer/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+.dashboard-shell {
+  display: grid;
+  gap: 22px;
+}
+
+.dashboard-note {
+  color: #efe7ff;
+  font-size: 0.98rem;
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 18px;
+}
+
+.dashboard-card {
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+}
+
+.dashboard-card h3,
+.table-card h3 {
+  margin-bottom: 10px;
+}
+
+.dashboard-card p,
+.table-card p {
+  color: var(--muted);
+}
+
+.preset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.preset-button {
+  border: 0;
+  cursor: pointer;
+  color: var(--text);
+  padding: 10px 14px;
+  font: inherit;
+  font-weight: 700;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.preset-button:hover,
+.preset-button:focus-visible {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.form-grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.field-group {
+  display: grid;
+  gap: 8px;
+}
+
+.field-group label {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #fff8c4;
+}
+
+.field-group input,
+.field-group select {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  background: rgba(9, 12, 28, 0.5);
+  color: var(--text);
+  padding: 12px 14px;
+  font: inherit;
+}
+
+.field-group small {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.prediction-stack {
+  display: grid;
+  gap: 16px;
+}
+
+.prediction-badge {
+  display: inline-flex;
+  width: fit-content;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.prediction-badge.approve {
+  background: rgba(52, 211, 153, 0.18);
+  color: #d1fae5;
+}
+
+.prediction-badge.review {
+  background: rgba(244, 114, 182, 0.18);
+  color: #ffe4f1;
+}
+
+.probability-number {
+  margin-top: 8px;
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: #ffffff;
+}
+
+.meter-track {
+  margin-top: 16px;
+  width: 100%;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #22d3ee, #8b5cf6, #f472b6);
+  transition: width 220ms ease;
+}
+
+.prediction-copy {
+  margin-top: 12px;
+}
+
+.driver-list {
+  display: grid;
+  gap: 12px;
+}
+
+.driver-row {
+  display: grid;
+  gap: 6px;
+}
+
+.driver-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 0.92rem;
+  color: #fff8c4;
+}
+
+.driver-bar {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.driver-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+}
+
+.driver-bar .positive {
+  background: linear-gradient(135deg, #22d3ee, #34d399);
+}
+
+.driver-bar .negative {
+  background: linear-gradient(135deg, #f59e0b, #f472b6);
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.filter-chip {
+  display: grid;
+  gap: 6px;
+  min-width: 190px;
+}
+
+.filter-chip label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff8c4;
+}
+
+.filter-chip select {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  background: rgba(9, 12, 28, 0.5);
+  color: var(--text);
+  padding: 10px 12px;
+  font: inherit;
+}
+
+.plot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.plot-card {
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+}
+
+.plot-card.wide {
+  grid-column: 1 / -1;
+}
+
+.plot-card h3 {
+  margin-bottom: 8px;
+}
+
+.plot-card p {
+  margin-bottom: 12px;
+}
+
+.chart-surface {
+  min-height: 330px;
+}
+
+.table-card {
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+}
+
+.table-wrap {
+  margin-top: 16px;
+  overflow-x: auto;
+}
+
+.match-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.match-table th,
+.match-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  white-space: nowrap;
+}
+
+.match-table th {
+  font-size: 0.92rem;
+  color: #fff8c4;
+}
+
+.match-table td {
+  color: var(--muted);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.status-pill.approved {
+  background: rgba(52, 211, 153, 0.18);
+  color: #d1fae5;
+}
+
+.status-pill.rejected {
+  background: rgba(244, 114, 182, 0.18);
+  color: #ffe4f1;
+}
+
+@media (max-width: 980px) {
+  .dashboard-layout,
+  .plot-grid,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "name": "Browser Loan Approval Scorecard",
+  "approvalThreshold": 0.58,
+  "bias": -0.15,
+  "numericFeatures": {
+    "income": {
+      "label": "Annual income",
+      "center": 5000000,
+      "scale": 4000000,
+      "weight": 0.8
+    },
+    "loanAmount": {
+      "label": "Loan amount",
+      "center": 15000000,
+      "scale": 10000000,
+      "weight": -0.55
+    },
+    "loanTerm": {
+      "label": "Loan term",
+      "center": 12,
+      "scale": 8,
+      "weight": -0.35
+    },
+    "cibil": {
+      "label": "Credit score",
+      "center": 650,
+      "scale": 120,
+      "weight": 2.1
+    },
+    "dependents": {
+      "label": "Dependents",
+      "center": 2,
+      "scale": 2.5,
+      "weight": -0.15
+    },
+    "bank": {
+      "label": "Bank assets",
+      "center": 5000000,
+      "scale": 5000000,
+      "weight": 0.25
+    }
+  },
+  "derivedFeatures": {
+    "loanToIncome": {
+      "label": "Loan-to-income ratio",
+      "center": 2.4,
+      "scale": 1.6,
+      "weight": -1.2
+    },
+    "assetCoverage": {
+      "label": "Asset coverage",
+      "center": 1.4,
+      "scale": 1.0,
+      "weight": 1.0
+    }
+  },
+  "categoricalWeights": {
+    "education": {
+      "label": "Education",
+      "weights": {
+        "Graduate": 0.22,
+        "Not Graduate": -0.08
+      }
+    },
+    "selfEmployed": {
+      "label": "Employment type",
+      "weights": {
+        "No": 0.12,
+        "Yes": -0.02
+      }
+    }
+  },
+  "presets": [
+    {
+      "id": "steady-earner",
+      "label": "Steady earner",
+      "inputs": {
+        "dependents": 1,
+        "education": "Graduate",
+        "selfEmployed": "No",
+        "income": 7200000,
+        "loanAmount": 12000000,
+        "loanTerm": 8,
+        "cibil": 782,
+        "residential": 9000000,
+        "commercial": 2000000,
+        "luxury": 6000000,
+        "bank": 4500000
+      }
+    },
+    {
+      "id": "borderline-founder",
+      "label": "Borderline founder",
+      "inputs": {
+        "dependents": 3,
+        "education": "Graduate",
+        "selfEmployed": "Yes",
+        "income": 4300000,
+        "loanAmount": 16500000,
+        "loanTerm": 18,
+        "cibil": 624,
+        "residential": 3500000,
+        "commercial": 2500000,
+        "luxury": 4200000,
+        "bank": 2100000
+      }
+    },
+    {
+      "id": "asset-rich-applicant",
+      "label": "Asset-rich applicant",
+      "inputs": {
+        "dependents": 2,
+        "education": "Not Graduate",
+        "selfEmployed": "No",
+        "income": 5400000,
+        "loanAmount": 12500000,
+        "loanTerm": 10,
+        "cibil": 703,
+        "residential": 11000000,
+        "commercial": 3800000,
+        "luxury": 7500000,
+        "bank": 6200000
+      }
+    }
+  ]
+}

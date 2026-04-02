@@ -11,6 +11,8 @@ This is a static portfolio site designed for GitHub Pages.
 - `artifacts/penguins/`: the first machine learning project and its downloadable files
 - `artifacts/robot-sensor-data-classification.html`: robot sensor project detail page
 - `artifacts/robot-sensor/`: the second machine learning project and its downloadable files
+- `artifacts/loan-prediction-explorer.html`: interactive lending dashboard project page
+- `artifacts/loan-explorer/`: the browser-based loan explorer assets and dataset
 - `.github/workflows/deploy.yml`: GitHub Pages deployment workflow
 
 ## Publish to GitHub Pages
