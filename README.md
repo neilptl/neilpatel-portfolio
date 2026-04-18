@@ -13,6 +13,8 @@ This is a static portfolio site designed for GitHub Pages.
 - `artifacts/robot-sensor/`: the second machine learning project and its downloadable files
 - `artifacts/loan-prediction-explorer.html`: interactive lending dashboard project page
 - `artifacts/loan-explorer/`: the browser-based loan explorer assets and dataset
+- `artifacts/movie-recommendation-explorer.html`: interactive movie recommender project page
+- `artifacts/movie-explorer/`: the browser-based movie recommender assets and dataset
 - `.github/workflows/deploy.yml`: GitHub Pages deployment workflow
 
 ## Publish to GitHub Pages

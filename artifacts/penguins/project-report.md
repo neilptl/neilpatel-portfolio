@@ -33,6 +33,19 @@ This project demonstrates that I can take raw data, structure an analysis,
 build repeatable code, compare model behavior, and communicate results clearly in
 a format that can be shared online.
 
+## Best Fit Roles
+
+- Junior machine learning engineer
+- Data analyst or analytics engineer
+- Software engineer working on data-heavy product features
+
+## Why It Matters
+
+Even though this is a small benchmark project, the workflow mirrors real ML and
+analytics work: clean imperfect data, establish a baseline, compare simple
+models, and communicate results in a way other people can quickly review and
+trust.
+
 ## Dataset Snapshot
 
 - Raw rows in source file: 344

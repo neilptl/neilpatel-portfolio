@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Recommendation Explorer | Neil</title>
+  <meta
+    name="description"
+    content="Neil's browser-based movie recommendation explorer featuring client-side similarity scoring, interactive filters, and downloadable data assets."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="movie-explorer/dashboard.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="shape shape-one"></div>
+    <div class="shape shape-two"></div>
+    <div class="shape shape-three"></div>
+
+    <header class="site-header">
+      <a class="brand" href="../index.html">Neil<span>.build</span></a>
+      <nav class="site-nav" aria-label="Project navigation">
+        <a href="../index.html#artifacts">Portfolio</a>
+        <a href="movie-explorer/movies.json" download>Download Data</a>
+      </nav>
+    </header>
+
+    <main class="artifact-layout">
+      <section class="panel artifact-header">
+        <a class="back-link" href="../index.html#artifacts">Back to portfolio</a>
+        <p class="eyebrow">Featured project</p>
+        <h1>Movie Recommendation Explorer</h1>
+        <p>
+          This project uses a compact public movie metadata dataset and a
+          browser-side similarity engine to recommend related films. Instead of a
+          static report, the experience behaves like a lightweight product: choose
+          a movie, apply filters, generate recommendations, and inspect why each
+          match was ranked highly.
+        </p>
+        <div class="artifact-actions">
+          <a class="button button-primary" href="movie-explorer/movies.json" download>Download Dataset</a>
+          <a class="button button-secondary" href="movie-explorer/recommender-config.json" download>Download Config</a>
+          <a class="button button-secondary" href="../index.html">Return Home</a>
+        </div>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <p class="mini-label">Movies</p>
+          <strong id="summary-movie-count">...</strong>
+          <p>Titles available to the recommendation engine.</p>
+        </article>
+        <article class="stat-card">
+          <p class="mini-label">Genres</p>
+          <strong id="summary-genre-count">...</strong>
+          <p>Distinct genre labels represented in the dataset.</p>
+        </article>
+        <article class="stat-card">
+          <p class="mini-label">Year range</p>
+          <strong id="summary-year-range">...</strong>
+          <p>Release window spanned by the movie collection.</p>
+        </article>
+        <article class="stat-card">
+          <p class="mini-label">Avg. runtime</p>
+          <strong id="summary-runtime">...</strong>
+          <p>Average runtime across the dataset.</p>
+        </article>
+      </section>
+
+      <section class="artifact-info-grid">
+        <article class="panel">
+          <p class="mini-label">Title</p>
+          <h2>Movie Recommendation Explorer</h2>
+        </article>
+        <article class="panel">
+          <p class="mini-label">Objective</p>
+          <p>
+            Build a static, browser-based recommendation engine that recommends
+            similar movies from metadata alone and presents the reasoning behind
+            each recommendation clearly.
+          </p>
+        </article>
+        <article class="panel">
+          <p class="mini-label">Process</p>
+          <p>
+            I selected a public movie metadata dataset, normalized its genres,
+            runtime, year, director, cast, and plot text, then designed a weighted
+            similarity system with interactive filters and recommendation
+            breakdowns.
+          </p>
+        </article>
+        <article class="panel">
+          <p class="mini-label">Tools</p>
+          <p>
+            JavaScript, JSON data, browser-side similarity scoring, HTML, CSS, and
+            GitHub Pages compatible static hosting.
+          </p>
+        </article>
+        <article class="panel">
+          <p class="mini-label">Value Proposition</p>
+          <p>
+            This project demonstrates frontend engineering, explainable similarity
+            ranking, and the ability to turn raw metadata into an interactive,
+            user-facing recommendation experience.
+          </p>
+        </article>
+        <article class="panel">
+          <p class="mini-label">Deliverable Type</p>
+          <p>
+            Interactive dashboard, downloadable movie dataset, configurable scoring
+            weights, JavaScript application logic, and styling assets.
+          </p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="movie-dashboard">
+          <div>
+            <p class="eyebrow">Interactive recommender</p>
+            <h2>Pick a movie and generate recommendations</h2>
+            <p class="movie-status" id="movie-dashboard-status">Loading movie metadata...</p>
+          </div>
+
+          <div class="movie-dashboard-layout">
+            <article class="movie-card">
+              <h3>Controls</h3>
+              <p class="movie-helper">
+                Choose a title, optionally narrow the candidate pool with filters,
+                and then click <strong>Recommend Movies</strong>.
+              </p>
+              <div class="movie-controls">
+                <div class="movie-form-grid">
+                  <div class="movie-field">
+                    <label for="movie-select">Movie title</label>
+                    <select id="movie-select">
+                      <option value="">Choose a movie...</option>
+                    </select>
+                  </div>
+                  <div class="movie-field">
+                    <label for="genre-filter">Candidate genre filter</label>
+                    <select id="genre-filter">
+                      <option value="All">All genres</option>
+                    </select>
+                  </div>
+                  <div class="movie-field">
+                    <label for="decade-filter">Candidate decade filter</label>
+                    <select id="decade-filter">
+                      <option value="All">All decades</option>
+                    </select>
+                  </div>
+                  <div class="movie-field">
+                    <label for="runtime-filter">Candidate runtime filter</label>
+                    <select id="runtime-filter">
+                      <option value="all">All runtimes</option>
+                      <option value="short">Under 100 min</option>
+                      <option value="medium">100-130 min</option>
+                      <option value="long">Over 130 min</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="movie-actions">
+                  <button class="button button-primary" id="recommend-button" type="button">Recommend Movies</button>
+                  <button class="button button-secondary" id="random-button" type="button">Pick Random Featured Movie</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="movie-panel">
+              <h3>Selected movie</h3>
+              <div id="selected-movie-panel" class="empty-state">
+                Choose a movie and click <strong>Recommend Movies</strong> to generate results.
+              </div>
+            </article>
+          </div>
+
+          <div>
+            <p class="eyebrow">Recommendations</p>
+            <h2>Top matches</h2>
+            <p class="movie-helper">
+              Recommendations are ranked by genre overlap, release era, runtime
+              similarity, director match, actor overlap, and shared plot keywords.
+            </p>
+            <div id="recommendations-grid" class="movie-recommendations">
+              <div class="empty-state">Recommendations will appear here after you run the engine.</div>
+            </div>
+          </div>
+
+          <div class="chart-grid">
+            <article class="movie-chart-card">
+              <h3>Average similarity drivers</h3>
+              <p class="movie-helper">Averages across the current recommendation set.</p>
+              <div id="similarity-chart"></div>
+            </article>
+            <article class="movie-chart-card">
+              <h3>Genre distribution</h3>
+              <p class="movie-helper">Most common genres among the recommended films.</p>
+              <div id="genre-chart"></div>
+            </article>
+            <article class="movie-chart-card">
+              <h3>Release timeline</h3>
+              <p class="movie-helper">How the recommendation set spans release years and match strength.</p>
+              <div id="year-chart"></div>
+            </article>
+          </div>
+
+          <article class="movie-table-card">
+            <h3>Recommendation comparison table</h3>
+            <p class="movie-helper">
+              This table highlights the shared features that pushed each recommendation higher or lower.
+            </p>
+            <div class="movie-table-wrap">
+              <table class="movie-table">
+                <thead>
+                  <tr>
+                    <th>Movie</th>
+                    <th>Score</th>
+                    <th>Shared genres</th>
+                    <th>Shared actors</th>
+                    <th>Year gap</th>
+                    <th>Runtime gap</th>
+                    <th>Same director</th>
+                  </tr>
+                </thead>
+                <tbody id="comparison-table-body"></tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel download-card">
+        <p class="eyebrow">Files</p>
+        <h2>Use the project directly</h2>
+        <p>
+          The recommender is fully static and runs entirely in the browser, so the
+          dataset, config, and source files are all downloadable and reviewable.
+        </p>
+        <div class="download-grid">
+          <article class="download-link-card">
+            <h3>Movie dataset</h3>
+            <p>The compact public movie metadata source stored locally for the recommender.</p>
+            <a class="button button-primary" href="movie-explorer/movies.json" download>Download Movies JSON</a>
+          </article>
+          <article class="download-link-card">
+            <h3>Scoring config</h3>
+            <p>The similarity weights, thresholds, and featured-movie presets used by the engine.</p>
+            <a class="button button-secondary" href="movie-explorer/recommender-config.json" download>Download Config JSON</a>
+          </article>
+          <article class="download-link-card">
+            <h3>Application logic</h3>
+            <p>The JavaScript that loads data, computes similarity scores, and renders the UI.</p>
+            <a class="button button-secondary" href="movie-explorer/app.js" download>Download App JS</a>
+          </article>
+          <article class="download-link-card">
+            <h3>Dashboard styling</h3>
+            <p>The CSS used to style the recommendation explorer and recommendation cards.</p>
+            <a class="button button-secondary" href="movie-explorer/dashboard.css" download>Download CSS</a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Portfolio project page.</p>
+    </footer>
+  </div>
+
+  <script src="movie-explorer/app.js"></script>
+</body>
+</html>

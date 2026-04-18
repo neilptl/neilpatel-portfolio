@@ -32,6 +32,19 @@ This project demonstrates my ability to work with sensor-oriented data, structur
 repeatable analysis workflows, and connect machine learning outputs to a
 robotics-adjacent use case that is easy to review publicly.
 
+## Best Fit Roles
+
+- Junior machine learning engineer
+- Robotics software engineer
+- Software engineer on sensing, wearable, or intelligent-device teams
+
+## Why It Matters
+
+Sensor classification matters in robotics, wearables, and monitoring systems
+because downstream behavior often depends on recognizing movement or posture
+accurately. This artifact shows that I can work with that kind of data while
+keeping the workflow understandable and repeatable.
+
 ## Dataset Snapshot
 
 - Source dataset: UCI Human Activity Recognition Using Smartphones
